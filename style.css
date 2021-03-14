@@ -19,7 +19,7 @@
 }
 
 body {
-    background-image: url('images/bg-pattern.svg');
+    background-image: url('bg-pattern.svg');
     background-repeat: no-repeat;
     padding-top: 17vh;
     background-color: var(--White);
@@ -101,7 +101,7 @@ p {
     width: 40px;
     height: 40px;
     border-radius: 50px;
-    background-image: url(images/icon-slider.svg);
+    background-image: url(icon-slider.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-color: var(--StrongCyan);
@@ -185,7 +185,7 @@ p {
 }
 
 ul {
-    list-style-image: url(images/icon-check.svg);
+    list-style-image: url(icon-check.svg);
     font-size: 0.8em;
 }
 
