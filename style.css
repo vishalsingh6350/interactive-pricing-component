@@ -1,0 +1,308 @@
+:root {
+    --SoftCyan: hsl(174, 77%, 80%);
+    --StrongCyan: hsl(174, 86%, 45%);
+    --LightGrayishRed: hsl(14, 92%, 95%);
+    --LightRed: hsl(15, 100%, 70%);
+    --PaleBlue: hsl(226, 100%, 87%);
+    --White: hsl(0, 0%, 100%);
+    --VeryPaleBlue: hsl(230, 100%, 99%);
+    --LightGrayishBlue: hsl(224, 65%, 95%);
+    --GrayishBlue: hsl(225, 20%, 60%);
+    --DarkDesaturatedBlue: hsl(227, 35%, 25%);
+}
+
+* {
+    margin: 0;
+    padding: s0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: url('images/bg-pattern.svg');
+    background-repeat: no-repeat;
+    padding-top: 17vh;
+    background-color: var(--White);
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--DarkDesaturatedBlue);
+    margin: 7px;
+}
+
+p {
+    text-align: center;
+    font-size: 0.7em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--GrayishBlue);
+}
+
+.circle-patterns {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.pricingSection {
+    width: 40%;
+    background-color: var(--White);
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    padding: 30px 50px;
+    color: var(--GrayishBlue);
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px #0000002a, -5px -5px 20px #ffffff;
+}
+
+.right {
+    text-align: right;
+    position: absolute;
+    right: 50px;
+    color: var(--GrayishBlue);
+}
+
+.output {
+    font-weight: 900;
+    color: var(--DarkDesaturatedBlue);
+}
+
+.sliderContainer {
+    width: 100%;
+    margin: 30px 0;
+}
+
+.slider {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    background-image: linear-gradient(to right, var(--SoftCyan) 50%, var(--VeryPaleBlue) 0%);
+    height: 10px;
+    border-radius: 50px;
+    outline: none;
+    opacity: 0.7;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-image: url(images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--StrongCyan);
+    box-shadow: 0px 0px 20px var(--SoftCyan);
+    cursor: pointer;
+}
+
+.toggle-container {
+    width: 60%;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.toggle {
+    width: 50px;
+    height: 20px;
+    background-color: var(--StrongCyan);
+    border-radius: 50px;
+    position: relative;
+    padding: 1px 5px;
+    cursor: pointer;
+}
+
+.toggleBtn {
+    content: "";
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 7px;
+    background-color: aliceblue;
+}
+
+.move {
+    position: absolute;
+    left: unset;
+    right: 7px !important;
+}
+
+.toggle-options {
+    opacity: 0.5;
+    font-size: 0.7em;
+}
+
+.bold {
+    font-weight: 500;
+    color: var(--DarkDesaturatedBlue);
+    opacity: 1;
+}
+
+.discount {
+    background-color: var(--LightGrayishRed);
+    padding: 5px;
+    color: var(--LightRed);
+    border-radius: 5px;
+    font-size: 0.5em;
+    position: absolute;
+    right: 65px;
+    top: 133px;
+}
+
+.underline {
+    height: 1px;
+    position: absolute;
+    left: 0;
+    opacity: 0.5;
+    width: 100%;
+    background-color: var(--GrayishBlue);
+}
+
+.footerSection {
+    margin: 50px auto 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style-image: url(images/icon-check.svg);
+    font-size: 0.8em;
+}
+
+button {
+    background-color: var(--DarkDesaturatedBlue);
+    padding: 10px 20px;
+    border-radius: 40px;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.onlyForMobile {
+    display: none;
+}
+
+.toShowOnMobile {
+    display: none;
+}
+
+.toHideOnMobile {
+    display: inline;
+}
+
+@media only screen and (max-width: 375px) {
+    body {
+        background-image: url('images/bg-pattern.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: top;
+    }
+    .pricingSection {
+        width: 90%;
+        padding: 30px 10px;
+    }
+    .onlyForMobile {
+        display: block;
+        text-align: center;
+    }
+    .left {
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    .right {
+        display: none;
+    }
+    .toggle-container {
+        width: 70%;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .toggle {
+        width: 40px;
+        height: 20px;
+        background-color: var(--StrongCyan);
+        border-radius: 50px;
+        position: relative;
+        padding: 1px 5px;
+    }
+    .toggleBtn {
+        content: "";
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 7px;
+        background-color: aliceblue;
+    }
+    .move {
+        position: absolute;
+        left: unset;
+        right: 7px !important;
+    }
+    .discount {
+        background-color: var(--LightGrayishRed);
+        padding: 5px;
+        color: var(--LightRed);
+        border-radius: 5px;
+        font-size: 0.5em;
+        position: absolute;
+        right: 15px;
+        top: 178px;
+    }
+    .toShowOnMobile {
+        display: unset;
+    }
+    .toHideOnMobile {
+        display: none;
+    }
+    .footerSection {
+        margin: 30px auto 10px auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    ul {
+        list-style-image: url(images/icon-check.svg);
+        font-size: 0.8em;
+        margin: 20px;
+    }
+    ul li {
+        margin: 10px;
+    }
+    button {
+        background-color: var(--DarkDesaturatedBlue);
+        padding: 10px 40px;
+        border-radius: 40px;
+        outline: none;
+        border: none;
+        color: white;
+    }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Interactive pricing component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- $ /month Monthly Billing Yearly Billing 25% discount Unlimited websites 100% data ownership Email reports Start my trial -->
+
+    <h1>Simple, traffic-based pricing</h1>
+    <p>Sign-up for our 30-day trial. No credit card required.</p>
+    <img src="images/pattern-circles.svg" class="circle-patterns" alt="" srcset="">
+
+    <div class="pricingSection">
+        <span class="left">500k Pageviews</span>
+        <span class="right"> <span class="output">$16.00</span>/<span class="output1">month</span></span>
+        <div class="sliderContainer">
+            <input type="range" name="Range" class="slider" id="myRange" min="0" max="1000" value="500">
+        </div>
+        <div class="onlyForMobile"> <span class="output">$16.00</span>/<span class="output1">month</span></div>
+        <div class="toggle-container">
+            <span class="toggle-options bold">Monthly billing</span>
+            <span class="toggle">
+                        <div class="toggleBtn"></div>
+                    </span>
+            <span class="toggle-options">Yearly billing</span>
+        </div>
+        <span class="discount"> <span class="toShowOnMobile">-</span> 25% <span class="toHideOnMobile">discount</span></span>
+        <div class="underline"></div>
+        <div class="footerSection">
+            <div class="lists">
+                <ul>
+                    <li class="items">unlimited websites</li>
+                    <li class="items">100% data ownership</li>
+                    <li class="items">Email reports</li>
+                </ul>
+            </div>
+            <div class="CTA">
+                <button>start my trial</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Vishal Singh</a>.
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider');
+        const toggle = document.querySelector('.toggle');
+        const toggleOptions = document.querySelectorAll('.toggle-options');
+        const left = document.querySelector('.left');
+        const output = document.querySelector('.output');
+        console.log("hello");
+        console.log(slider);
+        let price = 16;
+        let priceMultiplier = 1;
+        slider.oninput = function() {
+            // slider.style.backgroundColor = "#54" + this.value * 100;
+            slider.style.background = "linear-gradient(to right,var(--SoftCyan) " + Math.floor((this.value / this.max) * 100) + "% " + ",var(--LightGrayishBlue) 0)";
+            left.innerHTML = this.value + "k views";
+            if (this.value >= 0 && this.value < 10) {
+                price = 8;
+            } else if (this.value >= 10 && this.value < 50) {
+                price = 12;
+            } else if (this.value >= 50 && this.value < 100) {
+                price = 16;
+            } else if (this.value >= 100 && this.value < 500) {
+                price = 24;
+            } else {
+                price = 36;
+                console.log("5");
+            }
+            console.log(output);
+            output.innerHTML = "$" + price * priceMultiplier + ".00";
+            console.log(output);
+        }
+        toggle.addEventListener("click", (e) => {
+            e.currentTarget.children[0].classList.toggle("move");
+            Array.from(toggleOptions).forEach(element => {
+                element.classList.toggle("bold");
+            });
+            monthYearToggler();
+        })
+
+        function monthYearToggler() {
+            var x = document.querySelector(".output1");
+            if (x.innerHTML === "month") {
+                x.innerHTML = "year";
+                priceMultiplier = 12;
+                output.innerHTML = "$" + price * priceMultiplier + ".00";
+            } else {
+                x.innerHTML = "month";
+                priceMultiplier = 1;
+                output.innerHTML = "$" + price * priceMultiplier + ".00";
+            }
+        }
+    </script>
+</body>
+
+</html>
